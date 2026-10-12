@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: #281c15;
+    color: #fefae0;
+    overflow-x: hidden;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: rgba(40, 28, 21, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+}
+
+.nav-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.logo span::after {
+    content: '.';
+    color: #d4a373;
+}
+
+nav .links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+nav .link a {
+    color: #bda393;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+nav .link a:hover {
+    color: #d4a373;
+}
+
+.contact-btn a {
+    background: #d4a373;
+    color: #281c15;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 30px;
+    transition: all 0.25s ease;
+}
+
+.contact-btn a:hover {
+    background: #fefae0;
+    box-shadow: 0 4px 15px rgba(212, 163, 115, 0.2);
+}
+
+.hamburg {
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+    color: #fefae0;
+}
+
+.dropdown {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #3d2b20;
+    z-index: 998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: top 0.4s ease-in-out;
+}
+
+.dropdown.active {
+    top: 0;
+}
+
+.dropdown .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.dropdown .links a {
+    font-size: 22px;
+    color: #fefae0;
+    font-weight: 600;
+}
+
+.dropdown .cancel {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 26px;
+    cursor: pointer;
+    color: #bda393;
+}
+
+section {
+    min-height: 100vh;
+    padding: 140px 20px 80px;
+    display: flex;
+    align-items: center;
+}
+
+.main-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+.image img {
+    width: 100%;
+    max-width: 360px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+    background: linear-gradient(45deg, #d4a373, #faedcd);
+    animation: waveEffect 7s ease-in-out infinite;
+}
+
+.content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.content h1 span {
+    color: #d4a373;
+}
+
+/* Sesuai HTML: .social-links & .btn ada di dalam .typewriter */
+.typewriter {
+    font-size: 18px;
+    color: #bda393;
+}
+
+.typewriter span::after {
+    content: 'Frontend Developer';
+    color: #fefae0;
+    font-weight: 600;
+    padding-left: 6px;
+}
+
+.typewriter .social-links {
+    display: flex;
+    gap: 12px;
+    margin: 28px 0;
+}
+
+.typewriter .social-links a {
+    width: 42px;
+    height: 42px;
+    background: #3d2b20;
+    color: #fefae0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.typewriter .social-links a:hover {
+    background: #d4a373;
+    color: #281c15;
+    transform: translateY(-3px);
+}
+
+.typewriter .btn button {
+    background: #d4a373;
+    color: #281c15;
+    border: none;
+    padding: 12px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.typewriter .btn button:hover {
+    background: #faedcd;
+    transform: translateY(-2px);
+}
+
+@keyframes waveEffect {
+    0%, 100% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
+    50% { border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%; }
+}
+
+/* Responsive Breakpoint */
+@media (max-width: 992px) {
+    .image img {
+        max-width: 260px;
+        height: 260px; 
+    }
+
+    .main-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .image {
+        order: -1;
+    }
+
+    .image img {
+        max-width: 260px;
+    }
+
+    nav .links {
+        display: none;
+    }
+
+    .hamburg {
+        display: block;
+    }
+
+    .typewriter .social-links {
+        justify-content: center;
+    }
+
+    .content h1 {
+        font-size: 38px;
+    }
+}
